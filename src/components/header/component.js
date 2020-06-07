@@ -2,9 +2,14 @@ import React from "react";
 import styles from "./style.scss";
 
 const Header = () => (
-    <div className={styles.Header}>
+    <header className={styles.Header}>
+        <nav>
+            <ul>
+
+            </ul>
+        </nav>
         <h1>Header</h1>
-    </div>
+    </header>
 )
 
 export { Header };
