@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./style";
 
-class Post extends Component {
+class PostPage extends Component {
     constructor(props) {
         super(props);
     }
@@ -15,4 +15,4 @@ class Post extends Component {
     }
 }
 
-export { Post };
+export { PostPage };
