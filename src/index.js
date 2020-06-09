@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { PostsPage } from "./pages/posts/component";
 import { PostPage } from "./pages/post/component";
 import { Header } from "./components/header/component";
+import { Footer } from "./components/footer/component";
 import axios from "axios";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
@@ -16,7 +17,8 @@ class App extends Component {
         this.state = {
             nav: null,
             title: 'imkreative',
-            logo: null
+            logo: null,
+            config: null
         }
     }
 
@@ -24,6 +26,7 @@ class App extends Component {
         api
             .get('settings')
             .then(({ data }) => this.setState({ config: data }))
+            .catch(error => console.error(error));
     }
 
     componentDidMount() {
@@ -32,6 +35,8 @@ class App extends Component {
 
     render() {
         const logo = this.state.config ? this.state.config.logo : null;
+        const twitter = this.state.config ? this.state.config.twitter : null;
+        const facebook = this.state.config ? this.state.config.facebook : null;
 
         return (
             <Fragment>
@@ -40,6 +45,7 @@ class App extends Component {
                     <Route path="/read/:slug" component={PostPage} />
                     <Route path="/" component={PostsPage} />
                 </Switch>
+                <Footer twitter={twitter} facebook={facebook} />
             </Fragment>
         )
     }
