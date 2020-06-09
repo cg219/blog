@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./style";
 import { PostsContainer } from "./../../components/posts-container/component";
+import { Search } from "./../../components/search/component";
 import axios from "axios";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
@@ -20,6 +21,11 @@ class PostsPage extends Component {
             .then(({ data }) => this.setState({ posts: data.posts }))
     }
 
+    search = event => {
+        event.preventDefault();
+        console.log("SEARCH");
+    }
+
     componentDidMount() {
         this.loadPosts();
     }
@@ -27,7 +33,8 @@ class PostsPage extends Component {
     render() {
         return (
             <div className={styles.Posts}>
-                <PostsContainer posts={this.state.posts}></PostsContainer>
+                <Search name="term" placeholder="Search..." submitText="Search" submit={this.search} />
+                <PostsContainer posts={this.state.posts} />
             </div>
         )
     }
