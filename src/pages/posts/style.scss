@@ -8,4 +8,10 @@
     margin: to-rem(30) auto auto;
     min-height: calc(100% - #{to-rem(360)});
     grid-template-rows: to-rem(75) repeat(auto-fit, to-rem(200));
+
+    @media (max-width: 980px) {
+        max-width: 90%;
+        grid-row-gap: to-rem(25);
+        grid-template-rows: to-rem(50) repeat(auto-fit, to-rem(200));
+    }
 }

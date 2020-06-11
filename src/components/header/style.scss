@@ -61,4 +61,8 @@
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center 70%;
+
+    @media (max-width: 980px) {
+        background-size: 80%;
+    }
 }

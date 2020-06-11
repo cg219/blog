@@ -47,8 +47,8 @@ class PostPage extends Component {
             }
 
             if (this.state.post.related) {
-                related = this.state.post.related.map(post => (
-                    <div className={styles.RelatedPost} key={post.slug}>
+                related = this.state.post.related.map((post, index) => (
+                    <div className={styles.RelatedPost} key={post.slug} style={{'grid-area': `related-${index + 1}`}}>
                         <div className={styles.RelatedImage} style={{ backgroundImage: `url(${post.feature_image || defaultFeature })`}}></div>
                         <h3 className={styles.RelatedTitle}>{post.title}</h3>
                         <Link to={`/read/${post.slug}?related_from=${this.state.post.slug}&internal=true`}></Link>
