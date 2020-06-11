@@ -5,11 +5,13 @@ import styles from "./style";
 const Post = (props) => {
     const feature = props.feature_image || "https://storage.googleapis.com/kreativemente-assets/uploads/default2.jpg";
 
+    console.log(styles);
+
     return (
         <section className={styles.Post}>
             <Link to={`/read/${props.slug}`} />
             <figure>
-                <div className={styles.Image} styles={{ backgroundImage: `url(${feature})` }}></div>
+                <div className={styles.Image} style={{ backgroundImage: `url(${feature})` }}></div>
             </figure>
             <time className={styles.Date}>{props.formatted_date}</time>
             <h1 className={styles.Title}>{props.title}</h1>

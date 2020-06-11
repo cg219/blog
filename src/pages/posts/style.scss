@@ -1,3 +1,11 @@
+@import "../../functions";
+
 .Posts {
-    background-color: #54ac44;
+    max-width: to-rem(960);
+    width: 100%;
+    display: grid;
+    grid-row-gap: to-rem(15);
+    margin: to-rem(30) auto auto;
+    min-height: calc(100% - #{to-rem(360)});
+    grid-template-rows: to-rem(75) repeat(auto-fit, to-rem(200));
 }

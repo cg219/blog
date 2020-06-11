@@ -1,5 +1,7 @@
+@import "../../functions";
+
 .Header {
-    height: 200px;
+    height: to-rem(200);
     width: 100%;
     background-color: #080808;
     display: grid;

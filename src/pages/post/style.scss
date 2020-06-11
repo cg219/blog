@@ -1,5 +1,6 @@
+@import "../../functions";
+
 .Post {
-    background-color: #EFEFEF;
 }
 
 .Header {}
@@ -9,9 +10,16 @@
 .Date {}
 .Title {}
 .Category {}
-.Author {}
-.AuthorImage {}
-.AuthorName {}
+
+.Author {
+}
+
+.AuthorImage {
+}
+
+.AuthorName {
+}
+
 .Body {}
 .Tags {}
 .Tag {}
