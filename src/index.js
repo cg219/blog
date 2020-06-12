@@ -45,6 +45,7 @@ class App extends Component {
                     <Route path="/read/:slug">
                         { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
                     </Route>
+                    <Route path="/tags/:tag" component={PostsPage} />
                     <Route path="/" component={PostsPage} />
                 </Switch>
                 <Footer twitter={twitter} facebook={facebook} />

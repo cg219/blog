@@ -30,3 +30,11 @@
         grid-template-rows: to-rem(50) repeat(auto-fit, to-vw(350, 420));
     }
 }
+
+.Tags {
+    grid-template-rows: to-rem(50) repeat(auto-fit, to-rem(200));
+}
+
+.TagsTitle {
+    span { color: #09864B; }
+}
