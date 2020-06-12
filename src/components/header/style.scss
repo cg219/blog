@@ -53,6 +53,25 @@
             z-index: 10;
         }
     }
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr 8fr 1fr;
+
+        ul {
+            li {
+                list-style: none;
+                font-size: to-rem(12);
+            }
+        }
+    }
+
+    @media (max-width: 420px) {
+        grid-template-columns: 1fr 8fr 1fr;
+    }
 }
 
 .Logo {

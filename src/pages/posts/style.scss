@@ -14,4 +14,19 @@
         grid-row-gap: to-rem(25);
         grid-template-rows: to-rem(50) repeat(auto-fit, to-rem(200));
     }
+
+    @media (max-width: 767px) {
+        margin: to-vw(30, 767) auto auto;
+        grid-template-rows: to-rem(50) repeat(auto-fit, to-vw(300, 767));
+    }
+
+    @media (max-width: 600px) {
+        margin: to-vw(30, 600) auto auto;
+        grid-template-rows: to-rem(50) repeat(auto-fit, to-vw(350, 600));
+    }
+
+    @media (max-width: 420px) {
+        margin: to-vw(30, 420) auto auto;
+        grid-template-rows: to-rem(50) repeat(auto-fit, to-vw(350, 420));
+    }
 }
