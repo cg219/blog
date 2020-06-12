@@ -5,7 +5,7 @@ import axios from "axios";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
 
-class PostPage extends Component {
+export class PostPage extends Component {
     constructor(props) {
         super(props);
 
@@ -22,6 +22,12 @@ class PostPage extends Component {
 
     componentDidMount() {
         if (this.props.match.params.slug) {
+            this.loadPost(this.props.match.params.slug);
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.match.params.slug !== prevProps.match.params.slug) {
             this.loadPost(this.props.match.params.slug);
         }
     }
@@ -48,7 +54,7 @@ class PostPage extends Component {
 
             if (this.state.post.related) {
                 related = this.state.post.related.map((post, index) => (
-                    <div className={styles.RelatedPost} key={post.slug} style={{'grid-area': `related-${index + 1}`}}>
+                    <div className={styles.RelatedPost} key={post.slug} style={{gridArea: `related-${index + 1}`}}>
                         <div className={styles.RelatedImage} style={{ backgroundImage: `url(${post.feature_image || defaultFeature })`}}></div>
                         <h3 className={styles.RelatedTitle}>{post.title}</h3>
                         <Link to={`/read/${post.slug}?related_from=${this.state.post.slug}&internal=true`}></Link>
@@ -102,4 +108,4 @@ class PostPage extends Component {
     }
 }
 
-export default withRouter(PostPage);
+export const PostPageWithRouter = withRouter(PostPage);

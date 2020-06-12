@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { PostsPage } from "./pages/posts/component";
-import PostPage from "./pages/post/component";
+import { PostPageWithRouter } from "./pages/post/component";
 import { Header } from "./components/header/component";
 import { Footer } from "./components/footer/component";
 import axios from "axios";
@@ -37,14 +37,13 @@ class App extends Component {
         const logo = this.state.config ? this.state.config.logo : null;
         const twitter = this.state.config ? this.state.config.twitter : null;
         const facebook = this.state.config ? this.state.config.facebook : null;
-        const page = this.state.config ? <PostPage owner={this.state.config.owner} /> : null;
 
         return (
             <Fragment>
                 <Header logo={logo} />
                 <Switch>
                     <Route path="/read/:slug">
-                        { page }
+                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
                     </Route>
                     <Route path="/" component={PostsPage} />
                 </Switch>
