@@ -1,21 +1,58 @@
-import React, { Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Posts } from "./pages/posts/component";
-import { Post } from "./pages/post/component";
+import { PostsPage } from "./pages/posts/component";
+import { PostPageWithRouter } from "./pages/post/component";
 import { Header } from "./components/header/component";
+import { Footer } from "./components/footer/component";
+import axios from "axios";
 
-const App = () => (
-    <Fragment>
-        <div>My App</div>
-        <Header />
-        <Switch>
-            <Route path="/read/:slug" component={Post} />
-            <Route path="/" component={Post} />
-        </Switch>
-    </Fragment>
-)
+const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            nav: null,
+            title: 'imkreative',
+            logo: null,
+            config: null
+        }
+    }
+
+    loadConfig = () => {
+        api
+            .get('settings')
+            .then(({ data }) => this.setState({ config: data }))
+            .catch(error => console.error(error));
+    }
+
+    componentDidMount() {
+        this.loadConfig();
+    }
+
+    render() {
+        const logo = this.state.config ? this.state.config.logo : null;
+        const twitter = this.state.config ? this.state.config.twitter : null;
+        const facebook = this.state.config ? this.state.config.facebook : null;
+
+        return (
+            <Fragment>
+                <Header logo={logo} />
+                <Switch>
+                    <Route path="/read/:slug">
+                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
+                    </Route>
+                    <Route path="/tags/:tag" component={PostsPage} />
+                    <Route path="/" component={PostsPage} />
+                </Switch>
+                <Footer twitter={twitter} facebook={facebook} />
+            </Fragment>
+        )
+    }
+}
 
 ReactDOM.render(
     <BrowserRouter>

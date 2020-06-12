@@ -5,3 +5,5 @@ dist/
 distpreview/
 distpub/
 .DS_Store
+
+.vercel
