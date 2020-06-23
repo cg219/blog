@@ -43,7 +43,6 @@ class PostsPage extends Component {
             const query = new URLSearchParams(this.props.location.search);
 
             return query.get('term');
-            console.log("TERRRM")
         }
 
         return null;
