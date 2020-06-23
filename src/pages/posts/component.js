@@ -16,6 +16,8 @@ class PostsPage extends Component {
     }
 
     loadPosts = (options) => {
+        console.log(options);
+
         if (options && options.search) {
             api.post('search', { term: options.term })
                 .then(({ data }) => this.setState({ posts: data.posts }))
@@ -66,7 +68,7 @@ class PostsPage extends Component {
             if (prevProps.location.search !== this.props.location.search && this.props.location.search) {
                 const term = this.getSearchTerm();
 
-                return this.loadPosts(term !== null, term);
+                return this.loadPosts({ term, search: true });
             }
 
             if ( (prevProps.location.search !== this.props.location.search && !this.props.location.search ) ||

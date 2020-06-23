@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { Loading } from "./../../components/loading/component";
 import styles from "./style";
 import axios from "axios";
 
@@ -34,7 +35,7 @@ export class PostPage extends Component {
 
     render() {
         const defaultFeature = "https://storage.googleapis.com/kreativemente-assets/uploads/default2.jpg";
-        let markup = <p>Loading....</p>;
+        let markup = <Loading />;
 
         if (this.state.post) {
             const feature = this.state.post.feature_image || defaultFeature;
