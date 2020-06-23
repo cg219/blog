@@ -3,6 +3,7 @@ import styles from "./style";
 import { PostsContainer } from "./../../components/posts-container/component";
 import { Search } from "./../../components/search/component";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
 
@@ -61,6 +62,7 @@ class PostsPage extends Component {
         }
 
         this.loadPosts(options);
+        ReactGA.pageview(this.props.location.pathname);
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -75,6 +77,8 @@ class PostsPage extends Component {
                 (prevProps.location.pathname !== this.props.location.pathname)) {
                 return this.loadPosts();
             }
+
+            ReactGA.pageview(this.props.location.pathname);
         }
     }
 

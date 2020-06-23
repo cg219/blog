@@ -7,6 +7,7 @@ import { PostPageWithRouter } from "./pages/post/component";
 import { Header } from "./components/header/component";
 import { Footer } from "./components/footer/component";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
 
@@ -20,6 +21,8 @@ class App extends Component {
             logo: null,
             config: null
         }
+
+        ReactGA.initialize("UA-31581798-4", { debug: true })
     }
 
     loadConfig = () => {
