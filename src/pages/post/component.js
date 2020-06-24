@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Loading } from "./../../components/loading/component";
 import styles from "./style";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
 
@@ -24,12 +25,14 @@ export class PostPage extends Component {
     componentDidMount() {
         if (this.props.match.params.slug) {
             this.loadPost(this.props.match.params.slug);
+            ReactGA.pageview(this.props.location.pathname);
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.match.params.slug !== prevProps.match.params.slug) {
             this.loadPost(this.props.match.params.slug);
+            ReactGA.pageview(this.props.location.pathname);
         }
     }
 
