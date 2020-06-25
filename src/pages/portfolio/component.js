@@ -16,7 +16,7 @@ export class PortfolioPage extends Component {
     }
 
     componentDidMount() {
-        console.log("HO")
+        ReactGA.pageview(this.props.location.pathname);
         api.get('portfolio')
             .then(({ data }) => this.setState({ items: data.items }));
     }
