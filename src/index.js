@@ -4,6 +4,7 @@ import "./index.scss";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { PostsPage } from "./pages/posts/component";
 import { PostPageWithRouter } from "./pages/post/component";
+import { PortfolioPage } from "./pages/portfolio/component";
 import { Header } from "./components/header/component";
 import { Footer } from "./components/footer/component";
 import axios from "axios";
@@ -49,6 +50,7 @@ class App extends Component {
                         { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
                     </Route>
                     <Route path="/tags/:tag" component={PostsPage} />
+                    <Route path="/portfolio" component={PortfolioPage} />
                     <Route path="/" component={PostsPage} />
                 </Switch>
                 <Footer twitter={twitter} facebook={facebook} />
