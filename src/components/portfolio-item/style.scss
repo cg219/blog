@@ -1,0 +1,231 @@
+@import "../../functions";
+
+.PortfolioItem {
+    background-color: #EF0038;
+    width: 25%;
+    height: 25%;
+    overflow: hidden;
+    position: relative;
+
+    a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        .Info {
+            transform: translateY(0);
+            transition-delay: .4s;
+        }
+    }
+
+    @media (min-width: 1799px) {
+        width: 16.6%;
+        height: 16.6vw;
+    }
+
+    @media (max-width: 1281px) {
+        width: 33.3%;
+        height: 30vw;
+    }
+
+    @media (max-width: 1025px) {
+        width: 50%;
+        height: 50vw;
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;
+        height: 80vw;
+    }
+
+    @media (max-width: 420px) {
+        width: 100%;
+        height: 100vw;
+    }
+}
+
+.Info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, .8);
+    transform: translateY(100%);
+    transition: .2s transform .1s ease-out;
+    color: #EFEFEF;
+    display: grid;
+    padding: to-rem(10);
+    grid-template-columns: auto 1fr to-rem(10);
+    grid-template-rows: to-rem(30) to-rem(15) to-rem(15) to-rem(15) to-rem(15) to-rem(15) auto;
+    grid-template-areas:
+        "title date ."
+        ". . ."
+        "client client ."
+        "agency agency ."
+        "role role ."
+        ". . ."
+        "tech tech .";
+
+    @media (max-width: 1401px) {
+        grid-template-rows: to-rem(30) to-rem(15) to-rem(15) to-rem(15) to-rem(15) to-rem(15) to-rem(15) auto;
+        grid-template-areas:
+            "title . ."
+            "date . ."
+            ". . ."
+            "client client ."
+            "agency agency ."
+            "role role ."
+            ". . ."
+            "tech tech .";
+    }
+
+    @media (max-width: 1281px) {
+        grid-template-rows: to-rem(30) to-rem(20) to-rem(15) to-rem(18) to-rem(18) to-rem(18) to-rem(10) auto;
+    }
+
+    @media (max-width: 1025px) {
+        transform: translateY(0);
+    }
+}
+
+.Title {
+    grid-area: title;
+    font-size: to-rem(24);
+    margin: 0;
+
+    @media (min-width: 1799px) {
+        font-size: to-rem(20);
+        line-height: to-rem(20);
+        align-self: center;
+    }
+
+    @media (max-width: 1401px) {
+        align-self: end;
+    }
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(26);
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(24);
+    }
+
+    @media (max-width: 767px) {
+        font-size: to-rem(22);
+    }
+}
+
+.Date {
+    grid-area: date;
+    font-size: to-rem(13);
+    margin-left: to-rem(10);
+    align-self: center;
+    color: #09864B;
+    text-transform: uppercase;
+
+    @media (min-width: 1799px) {
+        font-size: to-rem(12);
+        align-self: center;
+    }
+
+    @media (max-width: 1401px) {
+        font-size: to-rem(13);
+        margin-left: 0;
+        align-self: start;
+    }
+
+    @media (max-width: 1281px) {
+        font-size: to-rem(13);
+        margin-left: 0;
+        align-self: start;
+    }
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(18);
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(16);
+    }
+
+    @media (max-width: 767px) {
+        font-size: to-rem(14);
+    }
+}
+
+.Client {
+    grid-area: client;
+    font-size: to-rem(13);
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(16);
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(14);
+    }
+
+    @media (max-width: 767px) {
+        font-size: to-rem(12);
+    }
+}
+
+.Agency {
+    grid-area: agency;
+    font-size: to-rem(13);
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(16);
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(14);
+    }
+
+    @media (max-width: 767px) {
+        font-size: to-rem(12);
+    }
+}
+
+.Role {
+    grid-area: role;
+    font-size: to-rem(13);
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(16);
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(14);
+    }
+
+    @media (max-width: 767px) {
+        font-size: to-rem(12);
+    }
+}
+
+.Tech {
+    grid-area: tech;
+    font-size: to-rem(13);
+
+    @media (max-width: 1025px) {
+        font-size: to-rem(14)
+    }
+
+    @media (max-width: 980px) {
+        font-size: to-rem(12);
+    }
+}
+
+
