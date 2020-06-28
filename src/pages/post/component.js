@@ -4,6 +4,7 @@ import { Loading } from "./../../components/loading/component";
 import styles from "./style";
 import axios from "axios";
 import ReactGA from "react-ga";
+import { Helmet } from "react-helmet";
 
 const api = axios.create({ baseURL: process.env.API_URL });
 
@@ -67,44 +68,54 @@ export class PostPage extends Component {
             }
 
             markup = (
-                <div className={styles.Post}>
-                    <header className={styles.Header}>
-                        <div className={styles.ImageContainer}>
-                            <div className={styles.Image} style={{backgroundImage: `url(${feature})`}}></div>
-                        </div>
-                        <div className={styles.Info}>
-                            <span className={styles.Date}>{this.state.post.formatted_date}</span>
-                            <h1 className={styles.Title}>{this.state.post.title}</h1>
-                            { category }
-                            <div className={styles.Author}>
-                                <div className={styles.AuthorImage} style={{ backgroundImage: `url(${this.state.post.primary_author.profile_image})` }}></div>
-                                <span className={styles.AuthorName}>by {this.state.post.primary_author.name}</span>
+                <Fragment>
+                    <Helmet>
+                        <title>imkreative - {this.state.post.title}</title>
+                        <meta property="og:url" content={this.props.mainurl + this.props.location.pathname} />
+                        <meta property="og:type" content="article" />
+                        <meta property="og:title" content={this.state.post.title} />
+                        <meta property="og:description" content={this.state.post.excerpt} />
+                        <meta property="og:image" content={this.state.post.feature_image || defaultFeature} />
+                    </Helmet>
+                    <div className={styles.Post}>
+                        <header className={styles.Header}>
+                            <div className={styles.ImageContainer}>
+                                <div className={styles.Image} style={{backgroundImage: `url(${feature})`}}></div>
                             </div>
-                        </div>
-                    </header>
-                    <section className={styles.Body}>
-                        { tags }
-                        <div dangerouslySetInnerHTML={{__html: this.state.post.html}}></div>
-                    </section>
-                    <aside className={styles.Sidebar}>
-                        <section className={styles.Owner}>
-                            <div className={styles.OwnerImage} style={{ backgroundImage: `url(${this.props.owner.profile_image})`}}></div>
-                            <h2 className={styles.OwnerTitle}>Hi I&rsquo;m {this.props.owner.name}</h2>
-                            <p className={styles.OwnerBio}>{this.props.owner.bio}</p>
+                            <div className={styles.Info}>
+                                <span className={styles.Date}>{this.state.post.formatted_date}</span>
+                                <h1 className={styles.Title}>{this.state.post.title}</h1>
+                                { category }
+                                <div className={styles.Author}>
+                                    <div className={styles.AuthorImage} style={{ backgroundImage: `url(${this.state.post.primary_author.profile_image})` }}></div>
+                                    <span className={styles.AuthorName}>by {this.state.post.primary_author.name}</span>
+                                </div>
+                            </div>
+                        </header>
+                        <section className={styles.Body}>
+                            { tags }
+                            <div dangerouslySetInnerHTML={{__html: this.state.post.html}}></div>
                         </section>
-                        <section className={styles.RelatedPosts}>
-                            { related }
-                        </section>
-                    </aside>
-                    <footer className={styles.Footer}>
-                        <h3>Share this Post</h3>
-                        <ul>
-                            <li className={styles.Twitter}><a href={`https://twitter.com/intent/tweet?text=${this.state.post.title}&url=${this.props.owner.website}/read/${this.state.post.slug}&hashtags=imkreative&via=kreativemente`} target="_blank"></a></li>
-                            <li className={styles.Facebook}><a href={`https://www.facebook.com/sharer/sharer.php?u=${this.props.owner.website}/read/${this.state.post.slug}`} target="_blank"></a></li>
-                            <li className={styles.LinkedIn}><a href={`https://www.linkedin.com/shareArticle?mini=true&url=${this.props.owner.website}/read/${this.state.post.slug}&title=${this.state.post.title}`} target="_blank"></a></li>
-                        </ul>
-                    </footer>
-                </div>
+                        <aside className={styles.Sidebar}>
+                            <section className={styles.Owner}>
+                                <div className={styles.OwnerImage} style={{ backgroundImage: `url(${this.props.owner.profile_image})`}}></div>
+                                <h2 className={styles.OwnerTitle}>Hi I&rsquo;m {this.props.owner.name}</h2>
+                                <p className={styles.OwnerBio}>{this.props.owner.bio}</p>
+                            </section>
+                            <section className={styles.RelatedPosts}>
+                                { related }
+                            </section>
+                        </aside>
+                        <footer className={styles.Footer}>
+                            <h3>Share this Post</h3>
+                            <ul>
+                                <li className={styles.Twitter}><a href={`https://twitter.com/intent/tweet?text=${this.state.post.title}&url=${this.props.owner.website}/read/${this.state.post.slug}&hashtags=imkreative&via=kreativemente`} target="_blank"></a></li>
+                                <li className={styles.Facebook}><a href={`https://www.facebook.com/sharer/sharer.php?u=${this.props.owner.website}/read/${this.state.post.slug}`} target="_blank"></a></li>
+                                <li className={styles.LinkedIn}><a href={`https://www.linkedin.com/shareArticle?mini=true&url=${this.props.owner.website}/read/${this.state.post.slug}&title=${this.state.post.title}`} target="_blank"></a></li>
+                            </ul>
+                        </footer>
+                    </div>
+                </Fragment>
             )
         }
 

@@ -47,7 +47,7 @@ class App extends Component {
                 <Header logo={logo} />
                 <Switch>
                     <Route path="/read/:slug">
-                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
+                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} mainurl={this.state.config.url} /> : null }
                     </Route>
                     <Route path="/tags/:tag" component={PostsPage} />
                     <Route path="/portfolio" component={PortfolioPage} />

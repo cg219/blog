@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import styles from "./style";
 import { PostsContainer } from "./../../components/posts-container/component";
 import { Search } from "./../../components/search/component";
 import axios from "axios";
 import ReactGA from "react-ga";
+import { Helmet } from "react-helmet";
 
 const api = axios.create({ baseURL: process.env.API_URL });
 
@@ -87,10 +88,15 @@ class PostsPage extends Component {
         const topSection = this.props.match.path !== '/tags/:tag' ? <Search name="term" placeholder="Search..." submitText="Search" submit={(event, term) => this.search(event, term)} /> : <h2 className={styles.TagsTitle}>Posts tagged with <span>{this.props.match.params.tag}</span></h2>
 
         return (
-            <div className={classes}>
-                { topSection }
-                <PostsContainer posts={this.state.posts} />
-            </div>
+            <Fragment>
+                <Helmet>
+                    <title>imkreative - Blog</title>
+                </Helmet>
+                <div className={classes}>
+                    { topSection }
+                    <PostsContainer posts={this.state.posts} />
+                </div>
+            </Fragment>
         )
     }
 }

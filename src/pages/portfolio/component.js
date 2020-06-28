@@ -3,6 +3,7 @@ import styles from "./style";
 import { PortfolioItem } from "./../../components/portfolio-item/component";
 import axios from "axios";
 import ReactGA from "react-ga";
+import { Helmet } from "react-helmet";
 
 const api = axios.create({ baseURL: process.env.API_URL });
 
@@ -23,9 +24,14 @@ export class PortfolioPage extends Component {
 
     render() {
         return (
-            <section className={styles.Portfolio}>
-                { this.state.items.length > 0 ? this.state.items.map(item => <PortfolioItem key={item.name} { ...item } />) : null }
-            </section>
+            <Fragment>
+                <Helmet>
+                    <title>imkreative - Portfolio</title>
+                </Helmet>
+                <section className={styles.Portfolio}>
+                    { this.state.items.length > 0 ? this.state.items.map(item => <PortfolioItem key={item.name} { ...item } />) : null }
+                </section>
+            </Fragment>
         )
     }
 }
