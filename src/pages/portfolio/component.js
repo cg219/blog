@@ -4,7 +4,7 @@ import { PortfolioItem } from "./../../components/portfolio-item/component";
 import axios from "axios";
 import ReactGA from "react-ga";
 
-const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
+const api = axios.create({ baseURL: process.env.API_URL });
 
 export class PortfolioPage extends Component {
     constructor(props) {

@@ -5,7 +5,7 @@ import styles from "./style";
 import axios from "axios";
 import ReactGA from "react-ga";
 
-const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
+const api = axios.create({ baseURL: process.env.API_URL });
 
 export class PostPage extends Component {
     constructor(props) {

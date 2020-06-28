@@ -10,7 +10,7 @@ import { Footer } from "./components/footer/component";
 import axios from "axios";
 import ReactGA from "react-ga";
 
-const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
+const api = axios.create({ baseURL: process.env.API_URL });
 
 class App extends Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class App extends Component {
             config: null
         }
 
-        ReactGA.initialize("UA-31581798-4", { debug: true })
+        ReactGA.initialize("UA-31581798-4", { debug: process.env.NODE_ENV == 'development' })
     }
 
     loadConfig = () => {
