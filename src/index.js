@@ -4,11 +4,13 @@ import "./index.scss";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { PostsPage } from "./pages/posts/component";
 import { PostPageWithRouter } from "./pages/post/component";
+import { PortfolioPage } from "./pages/portfolio/component";
 import { Header } from "./components/header/component";
 import { Footer } from "./components/footer/component";
 import axios from "axios";
+import ReactGA from "react-ga";
 
-const api = axios.create({ baseURL: 'http://localhost:3000/api/' });
+const api = axios.create({ baseURL: process.env.API_URL });
 
 class App extends Component {
     constructor(props) {
@@ -20,6 +22,8 @@ class App extends Component {
             logo: null,
             config: null
         }
+
+        ReactGA.initialize("UA-31581798-4", { debug: process.env.NODE_ENV == 'development' })
     }
 
     loadConfig = () => {
@@ -43,9 +47,10 @@ class App extends Component {
                 <Header logo={logo} />
                 <Switch>
                     <Route path="/read/:slug">
-                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} /> : null }
+                        { this.state.config ? <PostPageWithRouter owner={this.state.config.owner} mainurl={this.state.config.url} /> : null }
                     </Route>
                     <Route path="/tags/:tag" component={PostsPage} />
+                    <Route path="/portfolio" component={PortfolioPage} />
                     <Route path="/" component={PostsPage} />
                 </Switch>
                 <Footer twitter={twitter} facebook={facebook} />
