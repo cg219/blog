@@ -467,7 +467,7 @@
 .Sidebar {
     display: grid;
     grid-area: sidebar;
-    grid-template-rows: 1fr 4fr 1fr auto;
+    grid-template-rows: auto 4fr auto;
     grid-template-columns: 1fr;
     grid-template-areas:
         "owner"
@@ -477,7 +477,7 @@
     position: relative;
 
     @media (max-width: 1025px) {
-        grid-template-rows: 1fr 4fr;
+        grid-template-rows: auto 4fr;
         grid-template-columns: 1fr;
         grid-template-areas:
             "owner"
@@ -489,7 +489,7 @@
 
     @media (max-width: 980px) {
         grid-area: sidebar;
-        grid-template-rows: 1fr 5fr;
+        grid-template-rows: auto 5fr;
         grid-template-columns: 1fr;
         grid-template-areas:
             "owner"
@@ -623,11 +623,10 @@
 
 .OwnerImage {
     background-size: cover;
-    min-height: to-rem(300);
-    height: 100%;
+    height: to-rem(300);
 
     @media (max-width: 1025px) {
-        min-height: to-vw(215, 1025);
+        height: to-vw(215, 1025);
     }
 
     @media (max-width: 767px) {

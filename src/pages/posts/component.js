@@ -18,8 +18,6 @@ class PostsPage extends Component {
     }
 
     loadPosts = (options) => {
-        console.log(options);
-
         if (options && options.search) {
             api.post('search', { term: options.term })
                 .then(({ data }) => this.setState({ posts: data.posts }))
