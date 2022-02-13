@@ -10,9 +10,6 @@ class Header extends Component {
             nav : [{
                 name: 'Blog',
                 route: '/'
-            }, {
-                name: 'Portfolio',
-                route: '/portfolio'
             }]
         }
     }
