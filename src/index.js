@@ -28,7 +28,7 @@ class App extends Component {
 
     loadConfig = () => {
         api
-            .get('settings')
+            .get('settings', { params: { key: process.env.API_KEY }})
             .then(({ data }) => this.setState({ config: data }))
             .catch(error => console.error(error));
     }

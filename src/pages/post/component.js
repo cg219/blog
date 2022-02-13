@@ -19,7 +19,7 @@ export class PostPage extends Component {
 
     loadPost = slug => {
         api
-            .get(`post/${slug}`)
+            .get(`post/${slug}`, { params: { key: process.env.API_KEY }})
             .then(({ data }) => this.setState({ post: data.post }))
     }
 

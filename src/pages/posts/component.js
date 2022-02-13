@@ -19,14 +19,14 @@ class PostsPage extends Component {
 
     loadPosts = (options) => {
         if (options && options.search) {
-            api.post('search', { term: options.term })
+            api.post('search', { term: options.term, params: { key: process.env.API_KEY } })
                 .then(({ data }) => this.setState({ posts: data.posts }))
 
         } else if (options && options.tagged) {
-            api.get(`tagged/${options.tag}`)
+            api.get(`tagged/${options.tag}`, { params: { key: process.env.API_KEY }})
                 .then(({ data }) => this.setState({ posts: data.posts }))
         } else {
-            api.get('posts')
+            api.get('posts', { params: { key: process.env.API_KEY }})
                 .then(({ data }) => this.setState({ posts: data.posts }))
         }
 
