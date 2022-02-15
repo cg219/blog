@@ -1,45 +1,19 @@
 {
   "name": "blog",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel src/index.html",
-    "preview": "parcel build src/index.html --out-dir distpreview",
-    "build": "parcel build --no-source-maps src/index.html --out-dir distpub"
+    "dev": "astro dev",
+    "preview": "vercel",
+    "build": "astro build"
   },
   "author": "Clemente Gomez",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-ga": "^3.0.0",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.2.0"
-  },
+  "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-nuke-dist": "^1.0.1",
-    "postcss-modules": "^2.0.0",
-    "sass": "^1.26.7",
-    "vercel": "^19.0.1"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%"
-  ],
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
-  },
-  "postcss": {
-    "modules": "true"
+    "@tryghost/content-api": "^1.6.0",
+    "astro": "^0.22.20",
+    "vercel": "^23.1.2"
   }
 }
