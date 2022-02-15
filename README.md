@@ -13,7 +13,7 @@ npm install
 ```yaml
 PUBLIC_API_KEY=Ghost Content API Key
 PUBLIC_API_URL=Ghost API URL
-    ```
+```
 
 ## Development
 
