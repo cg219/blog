@@ -1,0 +1,21 @@
+main.imkreative {
+    display: grid;
+    width: 100vw;
+    height: 100%;
+    background-color: #FDFDFD;
+    grid-template-areas:
+        'nav nav nav'
+        '. content .'
+        'footer footer footer';
+
+    grid-template-columns: 1fr minmax(450px, 50vw) 1fr;
+    grid-row-gap: 7vw;
+}
+
+h1 {
+    font-family: 'Exo', sans-serif;
+}
+
+p {
+    font-family:  'Mukta', sans-serif;
+}

@@ -1,0 +1,216 @@
+@import "../../functions";
+
+.Post {
+    background-color: #FFF;
+    display: grid;
+    min-height: to-rem(200);
+    grid-column-gap: to-rem(15);
+    grid-template-columns: to-rem(300) auto;
+    grid-template-rows: to-rem(40) to-rem(30) to-rem(40) auto;
+    grid-template-areas:
+        "feature-image date"
+        "feature-image title"
+        "feature-image author"
+        "feature-image excerpt";
+    position: relative;
+
+    &:hover {
+        .Image {
+            transform: scale(1.5);
+            transition: 4s transform ease-in;
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+
+    figure {
+        height: 100%;
+        width: 100%;
+        grid-area: feature-image;
+        overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+        min-height: to-vw(300, 767);
+        grid-column-gap: to-vw(15, 767);
+        grid-template-columns: auto auto;
+        grid-template-rows: to-vw(100, 767) to-vw(75, 767) to-vw(30, 767) to-vw(30, 767) auto;
+        grid-template-areas:
+            "feature-image feature-image"
+            "feature-image feature-image"
+            "date author"
+            "title title"
+            "excerpt excerpt";
+    }
+
+    @media (max-width: 600px) {
+        min-height: to-vw(350, 600);
+        grid-column-gap: to-vw(15, 600);
+        grid-template-rows: to-vw(100, 600) to-vw(100, 600) to-vw(50, 600) to-vw(30, 600) auto;
+    }
+
+    @media (max-width: 420px) {
+        min-height: to-vw(350, 420);
+        grid-column-gap: to-vw(15, 420);
+        grid-template-rows: to-vw(100, 420) to-vw(100, 420) to-vw(50, 420) to-vw(40, 420) auto;
+    }
+}
+
+.Image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: 2s transform ease-out;
+}
+
+.Date {
+    font-family: 'Dosis';
+    font-size: to-rem(12);
+    font-weight: 600;
+    letter-spacing: to-rem(.8);
+    text-transform: uppercase;
+    color: #09864B;
+    grid-area: date;
+    align-self: end;
+
+    @media (max-width: 767px) {
+        margin-left: to-vw(20, 767);
+        letter-spacing: to-vw(.8, 767);
+        align-self: center;
+    }
+
+    @media (max-width: 600px) {
+        font-size: to-vw(12, 600);
+        margin-left: to-vw(20, 600);
+        letter-spacing: to-vw(.8, 600);
+    }
+
+    @media (max-width: 420px) {
+        font-size: to-vw(12, 420);
+        margin-left: to-vw(20, 420);
+        letter-spacing: to-vw(.8, 420);
+    }
+}
+
+.Title {
+    font-family: 'Heebo';
+    font-weight: 500;
+    font-size: to-rem(19);
+    margin: to-rem(5) 0;
+    grid-area: title;
+    align-self: start;
+
+    @media (max-width: 767px) {
+        font-size: to-vw(19, 767);
+        margin: to-vw(5, 767) 0 to-vw(5, 767) to-vw(20, 767);
+    }
+
+    @media (max-width: 600px) {
+        font-size: to-vw(19, 600);
+        margin: to-vw(5, 600) 0 to-vw(5, 600) to-vw(20, 600);
+    }
+
+    @media (max-width: 420px) {
+        font-size: to-vw(19, 420);
+        margin: to-vw(5, 420) 0 0 to-vw(20, 420);
+        padding: 0 to-vw(20, 420) 0 0;
+        align-self: end;
+    }
+}
+
+.Author {
+    display: flex;
+    align-items: center;
+    grid-area: author;
+    align-self: start;
+
+    @media (max-width: 767px) {
+        align-self: end;
+        justify-self: end;
+        margin-right: to-vw(20, 767);
+    }
+
+    @media (max-width: 600px) {
+        align-self: center;
+        margin-right: to-vw(20, 600);
+    }
+
+    @media (max-width: 420px) {
+        margin-right: to-vw(20, 420);
+    }
+}
+
+.AuthorName {
+    font-size: to-rem(12);
+    line-height: .9;
+    display: block;
+
+    @media (max-width: 767px) {
+        font-size: to-vw(12, 767);
+        line-height: .8;
+    }
+
+    @media (max-width: 600px) {
+        font-size: to-vw(12, 600);
+    }
+
+    @media (max-width: 420px) {
+        font-size: to-vw(12, 420);
+    }
+}
+
+.AuthorImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: to-rem(20);
+    height: to-rem(20);
+    margin-right: to-rem(5);
+
+    @media (max-width: 767px) {
+        width: to-vw(25, 767);
+        height: to-vw(25, 767);
+        margin-right: to-vw(5, 767);
+    }
+
+    @media (max-width: 600px) {
+        width: to-vw(30, 600);
+        height: to-vw(30, 600);
+        margin-right: to-vw(5, 600);
+    }
+
+    @media (max-width: 420px) {
+        width: to-vw(30, 420);
+        height: to-vw(30, 420);
+        margin-right: to-vw(5, 420);
+    }
+}
+
+.Excerpt {
+    font-family: 'Dosis';
+    font-weight: 300;
+    letter-spacing: to-rem(.5);
+    font-size: to-rem(15);
+    grid-area: excerpt;
+    margin: 0;
+
+    @media (max-width: 767px) {
+        padding: 0 to-vw(20, 767);
+    }
+
+    @media (max-width: 600px) {
+        padding: 0 to-vw(20, 600);
+    }
+
+    @media (max-width: 420px) {
+        padding: 0 to-vw(20, 420);
+    }
+}

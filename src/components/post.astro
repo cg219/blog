@@ -1,0 +1,35 @@
+---
+const { title, excerpt } = Astro.props;
+---
+
+<div class='post'>
+    <h1><a href ='#'>{title}</a></h1>
+    <p>{excerpt}</p>
+</div>
+
+<style>
+    .post {
+        margin: 1vw 0 3vw;
+        padding:  2vw 0 0;
+        border-top: .05vw solid #909090;
+    }
+
+    h1{
+        margin: 0 0 1vw;
+        font-size: 2.2vw;
+        line-height: 1;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: inherit;
+        outline: inherit;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1vw;
+        line-height: 1.2;
+        color: #393939;
+    }
+</style>
