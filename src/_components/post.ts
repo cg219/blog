@@ -29,10 +29,10 @@ export const css = `
 }
 `;
 
-export default function({ title, excerpt }) {
+export default function({ title, excerpt, slug }) {
     return `
         <div class='post'>
-            <h1><a href='#'>${title}</a></h1>
+            <h1><a href='/read/${slug}'>${title}</a></h1>
             <p>${excerpt}</p>
         </div>`
 }

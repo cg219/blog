@@ -6,7 +6,7 @@ export default function({ comp, posts }) {
         <div class="content">
             <h1>blog</h1>
             <div class='posts'>
-                ${posts.map(({ title, excerpt }) => comp.post({ title, excerpt }))}
+                ${posts.map(({ title, excerpt, slug }) => comp.post({ title, excerpt, slug }))}
             </div>
         </div>`
 }

@@ -1,10 +1,5 @@
 node_modules/
-private/
-.cache/
 dist/
-distpreview/
-distpub/
 .DS_Store
-
 .vercel
 .env
