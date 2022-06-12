@@ -19,3 +19,12 @@ h1 {
 p {
     font-family:  'Mukta', sans-serif;
 }
+
+.content {
+    grid-area: content;
+}
+
+.posts {
+    margin: 0;
+    padding: 0;
+}

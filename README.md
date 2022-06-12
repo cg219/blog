@@ -1,22 +1,12 @@
-# Blog Template
-
-## Installation
-
-```bash
-npm install
-```
+# Blog Site
 
 ## Setup
 
-- Create `.env` file
-- Add Variables
-```yaml
-PUBLIC_API_KEY=Ghost Content API Key
-PUBLIC_API_URL=Ghost API URL
-```
+- Copy `.env.example` to `.env` file
+- Fill out variables
 
 ## Development
 
 ```bash
-npm run dev
+deno task serve
 ```

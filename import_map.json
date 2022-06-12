@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v1.9.1/",
+    "dotenv/": "https://deno.land/x/dotenv@v3.2.0/"
+  }
+}

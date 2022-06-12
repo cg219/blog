@@ -1,23 +1,24 @@
----
-const { title } = Astro.props;
----
+export const title = 'Testing';
 
+export default ({ title, content }) => `
 <!doctype html>
 <html lang='en'>
 <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=5, user-scalable=0' />
-    <title>{title}</title>
-    <link rel='stylesheet' type='text/css' href={Astro.resolve('../normalize.css')} />
+    <title>${title}</title>
+    <link rel='stylesheet' type='text/css' href="css/normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Mukta&display=swap" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href={Astro.resolve('../index.css')} />
+    <link rel='stylesheet' type='text/css' href="css/index.css" />
+    <link rel='stylesheet' type='text/css' href="css/components.css" />
 </head>
 
 <body>
     <main class='imkreative'>
-        <slot></slot>
+        ${content}
     </main>
 </body>
 </html>
+`
