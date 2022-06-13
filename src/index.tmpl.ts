@@ -1,4 +1,4 @@
-export const title = 'BLOG TINGS';
+export const title = 'imkreative';
 export const layout = 'layouts/base.tmpl.ts';
 
 export default function({ comp, posts }) {

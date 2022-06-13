@@ -5,7 +5,7 @@ export default function* ({ posts }) {
         yield {
             url: `/read/${post.slug}`,
             title: post.title,
-            content: post.html
+            content: `<div class="content single-post">${post.html}</div>`
         }
     }
 }
