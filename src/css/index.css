@@ -1,3 +1,7 @@
+:root {
+    --green: #22707F;
+}
+
 main.imkreative {
     display: grid;
     width: 100vw;
@@ -12,7 +16,7 @@ main.imkreative {
     grid-row-gap: 7vw;
 }
 
-h1 {
+h1, h2, h3 {
     font-family: 'Exo', sans-serif;
 }
 
@@ -27,4 +31,26 @@ p {
 .posts {
     margin: 0;
     padding: 0;
+}
+
+.single-post {
+
+}
+
+.single-post p {
+    font-size:  1.2rem;
+    line-height: 1.4;
+}
+
+.single-post a {
+    color: var(--green);
+}
+
+.single-post ul {
+    margin: .5rem 0;
+    padding-left: 1.5rem;
+}
+
+.single-post ul li {
+    margin: .5rem 0;
 }
